@@ -10,7 +10,7 @@ public class Tercero {
 		//Los numeros son para los valores con los que operan
 		double num1=0;
 		double num2=0;
-		int resultado;
+		double resultado;
 		
 		// Crear objeto de la clase Scanner
 		

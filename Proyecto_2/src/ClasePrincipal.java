@@ -8,6 +8,8 @@ public class ClasePrincipal {
 		
 		Coche cocheEric = new Coche("1234JVL", "Seat", "Leon", 2013, "Negro", 15624.99, 'G', true);
 		System.out.println(cocheEric.toString());
+		
+		System.out.println("El color del coche de Eric vale:"+cocheEric.getPrecio());
 	}
 
 }

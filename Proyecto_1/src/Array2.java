@@ -19,7 +19,8 @@ public class Array2 {
 		
 		System.out.println();
 		
-		for(int i=0; i<6; i++) {
+		lista.remove(5);
+		for(int i=0; i<lista.size(); i++) {
 			System.out.println(lista.get(i));
 		}
 	}
