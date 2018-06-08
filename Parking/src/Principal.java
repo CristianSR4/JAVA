@@ -107,26 +107,120 @@ public class Principal {
 		
 	}
 
-	private static void EntrarAutobus(char[][] parking, int filas, int columnas, int precio, Scanner teclado) {
+	private static void EntrarAutobus(char[][] parking, int fila, int columna, int precio, Scanner teclado) {
 		// TODO Auto-generated method stub
 		
+		try {
+			
+			System.out.println("Introduce fila valida: ");
+			fila = teclado.nextInt();
+			
+			System.out.println("Introduce columna valida: ");
+			columna = teclado.nextInt();
+			
+			if(parking[fila -1][columna -1] == 'P' || parking[fila -1][columna -1] == 'X' || parking[fila -1][columna -1] == 'S' || parking[fila -1][columna -1] == 'E') {
+				
+				if(parking[fila -1][columna -1] == 'X' || parking[fila -1][columna -1] == 'P') {	
+					System.out.println("Cuidado, es columna o pared.");
+				}
+				
+				if(parking[fila -1][columna -1] == 'E' || parking[fila -1][columna -1] == 'S') {
+					System.out.println("Atención, esta en la entrada o la salida.");
+				}
+				
+				if(parking[fila -1] [columna -1] == 'A' || parking[fila -1] [columna -1] == 'C' || parking[fila -1] [columna -1] == 'M') {
+					System.out.println("Plaza ocupada.");
+				}
+				
+				else parking[fila -1][columna -1] = 'M';
+			}
+		
+		}catch(InputMismatchException error) {
+			System.out.println("Palabra no valida, elige otra opción.");
+			
+		}catch(ArrayIndexOutOfBoundsException error) {
+			System.out.println("Valor no valido, elige otra opción");
+		}
 		
 		
 	}
 
-	private static void EntrarMoto(char[][] parking, int filas, int columnas, int precio, Scanner teclado) {
+	private static void EntrarMoto(char[][] parking, int fila, int columna, int precio, Scanner teclado) {
 		// TODO Auto-generated method stub
 		
+		try {
+			
+			System.out.println("Introduce fila valida: ");
+			fila = teclado.nextInt();
+			
+			System.out.println("Introduce columna valida: ");
+			columna = teclado.nextInt();
+			
+			if(parking[fila -1][columna -1] == 'P' || parking[fila -1][columna -1] == 'X' || parking[fila -1][columna -1] == 'S' || parking[fila -1][columna -1] == 'E') {
+				
+				if(parking[fila -1][columna -1] == 'X' || parking[fila -1][columna -1] == 'P') {	
+					System.out.println("Cuidado, es columna o pared.");
+				}
+				
+				if(parking[fila -1][columna -1] == 'E' || parking[fila -1][columna -1] == 'S') {
+					System.out.println("Atención, esta en la entrada o la salida.");
+				}
+				
+				if(parking[fila -1] [columna -1] == 'A' || parking[fila -1] [columna -1] == 'C' || parking[fila -1] [columna -1] == 'M') {
+					System.out.println("Plaza ocupada.");
+				}
+				
+				else parking[fila -1][columna -1] = 'M';
+			}
+		
+		}catch(InputMismatchException error) {
+			System.out.println("Palabra no valida, elige otra opción.");
+			
+		}catch(ArrayIndexOutOfBoundsException error) {
+			System.out.println("Valor no valido, elige otra opción");
+		}
 		
 		
 	}
 
-	private static void EntrarCoche(char[][] parking, int filas, int columnas, int precio, Scanner teclado) {
+	private static void EntrarCoche(char[][] parking, int fila, int columna, int precio, Scanner teclado) {
 		// TODO Auto-generated method stub
 		
+		try {
+			
+			System.out.println("Introduce fila valida: ");
+			fila = teclado.nextInt();
+			
+			System.out.println("Introduce columna valida: ");
+			columna = teclado.nextInt();
+			
+			if(parking[fila -1][columna -1] == 'P' || parking[fila -1][columna -1] == 'X' || parking[fila -1][columna -1] == 'S' || parking[fila -1][columna -1] == 'E') {
+				
+				if(parking[fila -1][columna -1] == 'X' || parking[fila -1][columna -1] == 'P') {	
+					System.out.println("Cuidado, es columna o pared.");
+				}
+				
+				if(parking[fila -1][columna -1] == 'E' || parking[fila -1][columna -1] == 'S') {
+					System.out.println("Atención, esta en la entrada o la salida.");
+				}
+				
+				if(parking[fila -1] [columna -1] == 'A' || parking[fila -1] [columna -1] == 'C' || parking[fila -1] [columna -1] == 'M') {
+					System.out.println("Plaza ocupada.");
+				}
+				
+				else parking[fila -1][columna -1] = 'C';
+			}
 		
+		}catch(InputMismatchException error) {
+			System.out.println("Palabra no valida, elige otra opción.");
+			
+		}catch(ArrayIndexOutOfBoundsException error) {
+			System.out.println("Valor no valido, elige otra opción");
+		}
 		
 	}
+		
+	
 
 	private static void ImprimirParking(char[][] parking, int filas, int columnas) {
 		// TODO Auto-generated method stub
@@ -148,10 +242,10 @@ public class Principal {
 		
 		for (int f = 0; f<filas; f++) {
 			for(int c = 0; c<columnas; c++) {
-				if((f == 0) || (f == 4) || (f == 1) && (c == 9) || (f == 2) && (c == 9) || (f == 3) && (c == 9)) {
+				if((f == 0) || (f == 4) || (c == 1) && (c == 9) || (f == 2) && (c == 9) || (f == 3) && (c == 9)) {
 					parking [f][c] = 'P';
 					}
-				if((c>=1 && c<=8) && (f>=1 && f<=3)) {
+				if((c >= 1 && c <= 8) && (f >= 1 && f <= 3)) {
 					parking [f][c] = ' ';
 				}
 				if((c == 0) && (f == 0) || (c == 9) && (f == 0)  ||  (c == 9) && (f == 4) || (c == 0) && (f == 4) || (c == 0) && (f == 2)) {
