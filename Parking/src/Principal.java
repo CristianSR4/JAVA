@@ -27,11 +27,11 @@ public class Principal {
 		System.out.println("1. Ver el parking");
 		System.out.println("2. Entrada de un coche");
 		System.out.println("3. Entrada de una moto");
-		System.out.println("4. Entrada de un autobús");
-		System.out.println("5. Salida de un vehículo");
-		System.out.println("6. Ver recaudación");
+		System.out.println("4. Entrada de un autobus");
+		System.out.println("5. Salida de un vehiculo");
+		System.out.println("6. Ver recaudacion");
 		System.out.println("7. Salir del programa");
-		System.out.println("Introduzca opción: ");
+		System.out.println("Introduzca opcion: ");
 		opcion = teclado.nextInt();
 		System.out.println();
 		
@@ -80,11 +80,29 @@ public class Principal {
 		
 		try {
 			
-			System.out.println("Introduce fila válida: ");
+			System.out.println("Introduce fila valida: ");
 			fila = teclado.nextInt();
 			
-			System.out.println("Introduce columna válida: ");
+			System.out.println("Introduce columna valida: ");
 			columna = teclado.nextInt();
+			
+			if(parking[fila -1][columna -1] == 'P' || parking[fila -1][columna -1] == 'X' || parking[fila -1][columna -1] == 'S' || parking[fila -1][columna -1] == 'E') {
+				
+				if(parking[fila -1][columna -1] == 'X' || parking[fila -1][columna -1] == 'P') {	
+					System.out.println("Cuidado, es columna o pared.");
+				}
+				
+				if(parking[fila -1][columna -1] == 'E' || parking[fila -1][columna -1] == 'S') {
+					System.out.println("AtenciÃ³n, esta en la entrada o la salida.");
+				}
+				else parking[fila -1][columna -1] = ' ';
+			}
+		
+		}catch(InputMismatchException error) {
+			System.out.println("Palabra no valida, elige otra opciÃ³n.");
+			
+		}catch(ArrayIndexOutOfBoundsException error) {
+			System.out.println("Valor no valido, elige otra opciÃ³n");
 		}
 		
 	}
@@ -121,6 +139,7 @@ public class Principal {
 				System.out.println();
 				
 		}
+		
 			
 	}
 
@@ -129,9 +148,12 @@ public class Principal {
 		
 		for (int f = 0; f<filas; f++) {
 			for(int c = 0; c<columnas; c++) {
-				if((f == 0) || (f == 4) || (c == 9) || (c == 0)) {
+				if((f == 0) || (f == 4) || (f == 1) && (c == 9) || (f == 2) && (c == 9) || (f == 3) && (c == 9)) {
 					parking [f][c] = 'P';
 					}
+				if((c>=1 && c<=8) && (f>=1 && f<=3)) {
+					parking [f][c] = ' ';
+				}
 				if((c == 0) && (f == 0) || (c == 9) && (f == 0)  ||  (c == 9) && (f == 4) || (c == 0) && (f == 4) || (c == 0) && (f == 2)) {
 					parking [f][c] = 'X';
 				    }
